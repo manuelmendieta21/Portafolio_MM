@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Badge from  '../components/Badge.astro';
+import Linkedin from  '../icons/LinkedinIcon.astro';
+import Github from  '../icons/GithubIcon.astro';
+import SocialPill from '../components/SocialPill.astro';
+import Perfil from '../icons/Perfil.astro';
+import Timeline from  '../components/Timeline.astro';
+---
+
+<Layout title="Porfolio Manuel Mendieta Ingeniero de sistemas" description="Ingeniero de sistemas con mas de 10 años de experiencia">
+	<main>
+		<section class="p-3 m-5">
+			<!-- Imagen centrada -->
+			<div class="flex justify-center">
+				<Perfil />
+			</div>
+
+			<!-- Badge centrado -->
+			<div class="flex justify-center p-2.5">
+				<Badge>Disponible</Badge>
+			</div>
+			
+			<!-- Título centrado y responsivo -->
+			<h1 class="flex justify-center text-1xl sm:text-1xl md:text-2xl lg:text-4xl font-bold text-center">
+				Hola, <br>Soy Manuel Mendieta
+			</h1>
+
+			<!-- Contenedor centrado y responsivo -->
+			<div class="flex justify-center">
+				<div class="max-w-screen-md text-center p-4">
+					<h2 class="m-2 p-2">
+						Ingeniero de Sistemas con mas de 10 años de Experiencia, Liderando proyectos de infraestructura y Soporte de servidores Onpremise y cloud especialmente AWS, administración de bases de datos (SQL, MySQL, PostgreSQL). Tengo Conocimientos en desarrollo de software y diseño de páginas web.
+					</h2>
+				</div>
+			</div>
+
+			<nav class="flex gap-x-4 justify-center ">
+				<SocialPill class="" href="https://www.linkedin.com/in/manuel-mendieta-b0a43167/">
+					<Linkedin class="w-6 h-6"/>
+					linkedin
+				<SocialPill href="https://github.com/ManuelMendieta21">
+					<Github class="w-6 h-6"/>
+					Github</a>				
+			</nav>
+
+			
+		</section>
+
+		<section class="flex justify-center p-11">
+			<h2 class="">Experiencia Laboral</h3>
+			<div class="max-w-screen-md p-4"><Timeline></Timeline> </div>
+           
+        </section>
+    
+		
+
+	</main>
+
+</Layout>
