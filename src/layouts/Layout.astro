@@ -18,6 +18,7 @@ const {description, title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/Group.png" />
 		<meta name="generator" content={Astro.generator} />
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-HK5SPLLTXH"></script>
 		<title>{title}</title>
 	</head>
 	<body>
@@ -71,6 +72,8 @@ const {description, title } = Astro.props;
 	}
 </style>
 <script>
+
+	
 	// Cambiar entre modos claro y oscuro
 	const themeToggleButton = document.getElementById('theme-toggle');
 	const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
