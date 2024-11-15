@@ -29,25 +29,3 @@
         </form>
     </div>
 </div>
-
-<script>
-    // Selecciona los elementos y asegúrate de que sean del tipo adecuado
-    const emailContact = document.getElementById('emailContact') as HTMLInputElement | null;
-    const message = document.getElementById('message') as HTMLTextAreaElement | null;
-    const btnSend = document.getElementById('BtnSend');
-
-    btnSend?.addEventListener('click', (e) => {
-        e.preventDefault();
-
-
-        // Verificar si los elementos no son null antes de acceder a sus valores
-        const email = emailContact?.value || "";
-        const userMessage = message?.value || "";
-
-        // Muestra el contenido en la consola
-        alert(`Email: ${email}, Mensaje: ${userMessage}`);
-        console.log({ email, userMessage });
-    });
-</script>
-
-
