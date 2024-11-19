@@ -1,0 +1,75 @@
+<div class="flex justify-center p-7">
+    <div class="h-[21rem] w-[29rem] bg-[#e5e5e5] p-3 rounded-lg">
+        <form id="contactForm" class="max-w-sm mx-auto">
+            <label for="email-address-icon" class="block mb-2 text-sm font-medium text-black dark:text-white">Email de Contacto</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                        <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
+                        <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
+                    </svg>
+                </div>
+                <input id="emailContact" type="email" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="nombre@outlook.com" required>
+            </div>
+            
+            <div class="py-5">
+                <label for="message" class="block mb-2 text-sm font-medium text-black dark:text-white">Tu Mensaje:</label>
+                <textarea id="message" rows="4" class="block p-2.5 w-full text-sm rounded-lg border text-black focus:ring-blue-500 focus:border-blue-500" placeholder="Ingresa tu Mensaje"></textarea>
+            </div>
+            
+            <div class="flex justify-around p-3"> 
+                <button id="BtnSend" type="button" class="px-6 py-3 text-base font-medium text-white inline-flex items-center bg-[#9333ea] hover:bg-[#4c1d95] transition duration-500 hover:scale-125 justify-center rounded-lg">
+                    <svg class="w-4 h-4 text-white me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                        <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
+                        <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
+                    </svg>
+                    Enviar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="module">
+    // Script de contacto en Astro (por ejemplo, en Contact.astro)
+const emailContact = document.getElementById('emailContact');
+const message = document.getElementById('message');
+const btnSend = document.getElementById('BtnSend');
+
+btnSend?.addEventListener('click', async (e) => {
+  e.preventDefault();
+
+  const email = emailContact?.value || '';
+  const userMessage = message?.value || '';
+
+  if (email.trim() !== '' && userMessage.trim() !== '') {
+    // Preparar los datos del correo a enviar
+    const payload = {
+      to: email,
+      from: 'tucorreo@dominio.com',  // Cambia esto por tu correo
+      subject: 'Nuevo mensaje desde tu portafolio',
+      html: `<p>${userMessage}</p>`,
+    };
+
+    try {
+      const response = await fetch('http://localhost:3000/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        console.log('Correo enviado exitosamente');
+      } else {
+        console.error('Error al enviar el correo:', data.error);
+      }
+    } catch (error) {
+      console.error('Error en la petición:', error);
+    }
+  }
+});
+
+</script>
