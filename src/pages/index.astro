@@ -6,20 +6,17 @@ import Github from  '../icons/GithubIcon.astro';
 import SocialPill from '../components/SocialPill.astro';
 import Perfil from '../icons/Perfil.astro';
 import Timeline from  '../components/Timeline.astro';
+import FooterFinal from '../components/FooterFinal.astro';
 ---
 
 <Layout title="Portafolio Manuel Mendieta Ingeniero de sistemas" description="Ingeniero de sistemas con mas de 10 años de experiencia">
 	<main>
-		<section class="p-3 m-5">
-			<div class="flex justify-center">
-				<Perfil />
-			</div>
-			<div class="flex justify-center p-2.5">
-				<Badge>Disponible</Badge>
-			</div>
-			<h1 class="flex justify-center text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center">
-				Hola, <br>Soy Manuel Mendieta
+		<section class="p-12 m-12">
+			<Perfil />
 			</h1>
+			<div class="flex justify-center p-2.5">
+				
+			</div>
 			<div class="flex justify-center">
 				<div class="max-w-screen-md text-center p-4">
 					<h2 class="m-2 p-2">
@@ -27,6 +24,7 @@ import Timeline from  '../components/Timeline.astro';
 					</h2>
 				</div>
 			</div>
+			
 
 			<nav class="flex gap-x-4 justify-center ">
 				<SocialPill class="" href="https://www.linkedin.com/in/manuel-mendieta-b0a43167/">
@@ -51,3 +49,5 @@ import Timeline from  '../components/Timeline.astro';
 	</main>
 
 </Layout>
+
+<FooterFinal/>

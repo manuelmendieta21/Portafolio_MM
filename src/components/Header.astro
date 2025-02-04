@@ -1,18 +1,90 @@
-<header transition:animate="slide" class="flex items-center w-auto m-1 opacity-70">
-  <button type="button" class="absolute right-8 top-4 flex h-9 w-9 items-center justify-center rounded-lg bg-gray-200 ring-gray-300 transition-all hover:ring-2 dark:bg-gray-600 sm:ml-3" 
-    id="theme-toggle">
-    <span class="sr-only">Enable <span class="dark:hidden">light</span><span class="hidden dark:inline">dark</span> mode</span>
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-gray-100 hidden dark:inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-line-cap="round" stroke-line-join="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-gray-900 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-line-cap="round" stroke-line-join="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-    </svg>
-  </button>
+<div class="header-container">
+  <header transition:animate="slide" class="flex items-center w-auto m-1 opacity-70">
+    <button type="button" class="absolute right-8 top-4 flex h-9 w-9 items-center justify-center rounded-lg bg-gray-200 ring-gray-300 transition-all hover:ring-2 dark:bg-gray-600 sm:ml-3" id="theme-toggle">
+      <span class="sr-only">Enable <span class="dark:hidden">light</span><span class="hidden dark:inline">dark</span> mode</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-gray-100 hidden dark:inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-line-join="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-gray-900 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-line-join="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+      </svg>
+    </button>
 
-  <nav class="py-6 mx-8 w-full flex flex-row gap-5 justify-center text-2l">
-    <a href="/" class="hover:text-red-600">Home</a>
-    <a href="/Project" class="hover:text-red-600">Project</a>
-    <a href="/Contact" class="hover:text-red-600">Contact</a>
-</nav>
-</header>
+    <nav class="py-6 mx-8 w-full flex flex-row gap-5 justify-center text-2l font-bold">
+      <a href="/" class="hover:text-blue-300">Home</a>
+      <a href="/Project" class="hover:text-blue-300">Project</a>
+      <a href="/Contact" class="hover:text-blue-300">Contact</a>
+    </nav>
+  </header>
+</div>
+<style>
+.header-container {
+  position: relative;
+  width: 50%;
+  height: 70px; /* Altura inicial del header */
+  background-size: cover;
+  background-image: url('../public/bannerinit.avif');
+  background-position: fixed ;
+  transition: height 0.3s ease, background-color 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* Estilos para el header al hacer scroll */
+header.scrolled {
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+  backdrop-filter: blur(10px); /* Efecto de difuminado */
+  color: #000; /* Color de texto oscuro en modo light */
+}
+
+/* Ajustes para el modo dark */
+.dark header.scrolled {
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+  color: #fff; /* Color de texto claro en modo dark */
+}
+
+/* Añade un padding-top al contenido principal para evitar solapamiento */
+.main-content {
+  padding-top: 80px; /* Ajusta este valor según la altura de tu header */
+}
+</style>
+<script>
+ // Función para cambiar entre modo dark y light
+const toggleTheme = () => {
+  const htmlElement = document.documentElement;
+  const isDarkMode = htmlElement.classList.contains('dark');
+
+  if (isDarkMode) {
+    htmlElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  } else {
+    htmlElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  }
+};
+
+// Aplicar el tema guardado en localStorage al cargar la página
+const applySavedTheme = () => {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+};
+
+// Asignar el evento al botón de cambio de tema
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+// Aplicar el tema guardado al cargar la página
+applySavedTheme();
+</script>
