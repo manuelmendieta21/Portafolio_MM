@@ -6,11 +6,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Porfolio Manuel Mendieta Ingeniero de sistemas" description="Ingeniero de sistemas con mas de 10 años de experiencia">
-	
- 
-
+  // Capturar valores de los campos
 </Layout>
-<div class="col-12"><picture><source srcset="/images/banner_hu5767889388093870374.webp" media="(max-width: 575px)"><source srcset="/images/banner_hu13454120556947067300.webp" media="(max-width: 767px)"><source srcset="/images/banner_hu16092701587328752241.webp" media="(max-width: 991px)"><source srcset="/images/banner_hu13533946027924257200.webp"><img loading="eager" decoding="async" src="/images/banner_hu16949873544788829848.png" class="mx-auto lg:!max-w-[800px] img" alt="Banner image" width="1206" height="553"></picture></div>
 <FormSend>
     
 </FormSend>
@@ -25,19 +22,14 @@ import Layout from '../layouts/Layout.astro';
   
       button.addEventListener("click", async () => {
         // Capturar valores de los campos
-
         const email = (document.getElementById("emailContact") as HTMLInputElement).value;
         const message = (document.getElementById("message") as HTMLInputElement).value;
         const name = (document.getElementById("nameContact") as HTMLInputElement).value;
-      
-        
-  
         // Validar campos requeridos
         if (!name || !email || !message) {
           alert("Por favor completa todos los campos.");
           return;
         }
-  
         // Crear objeto JSON
         const payload = {
           name: name,
