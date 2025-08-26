@@ -6,10 +6,9 @@ export default defineConfig({
   integrations: [
     tailwind(),
     starlight({
-      title: 'Proyectos', // Configuración básica de Starlight
+      title: 'Proyectos',
       sidebar: [
-        { text: 'Introducción', link: '/docs/introduccion' },
-        // otros enlaces de la barra lateral
+        { label: 'Introducción', slug: 'introduccion' },
       ],
     }),
   ],
