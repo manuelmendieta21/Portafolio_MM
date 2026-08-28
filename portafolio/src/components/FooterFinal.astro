@@ -1,3 +1,7 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <footer class="bg-gray-900 px-4 sm:px-6 pt-12 pb-6 font-[sans-serif]">
     <div class="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
       <div class="space-y-4">
@@ -57,7 +61,7 @@
             </a>
           </li>
         </ul>
-        <div class="flex justify-center"><img src="/favicon.svg" alt="logo" class="w-22 h-10 " />
+        <div class="flex justify-center"><img src={`${base}favicon.svg`} alt="logo" class="w-22 h-10 " />
         </div>
        
     <hr class="my-6 border-gray-600" />

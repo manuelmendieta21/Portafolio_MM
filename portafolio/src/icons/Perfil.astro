@@ -1,3 +1,7 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <div class="bg-gray-50 font-[sans-serif] relative max-w-4xl shadow-lg shadow-[#e9d9f3] mx-auto rounded overflow-hidden">
     <div class="grid sm:grid-cols-2 max-sm:gap-6">
       <div class="text-center p-6 flex flex-col justify-center items-center">
@@ -7,7 +11,7 @@
 
             
         <button type="button" class="bg-[#38e39f] text-white tracking-wide font-semibold text-sm py-3 px-6 rounded-xl mt-8">
-          <a href="/Contact" target="_blank">Disponible</a>
+          <a href={`${base}Contact`} target="_blank">Disponible</a>
           
         </button>
 
@@ -33,7 +37,7 @@
 
       <div class="flex justify-end items-center p-2 bg-gradient-to-b from-[#210083] to-[#666089] rounded-bl-[230px] w-full h-full">
         <div class="h-72 w-72 rounded-full bg-gradient-to-tr from-[#000283] to-[#5844ee] p-5">
-          <img src="/removebg.jpg" class="w-full h-full rounded-full object-cover border-8 border-white" alt="img" />
+          <img src={`${base}removebg.jpg`} class="w-full h-full rounded-full object-cover border-8 border-white" alt="img" />
         </div>
       </div>
     </div>

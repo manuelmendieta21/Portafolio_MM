@@ -1,3 +1,7 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <div>
     <div class="p-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
 </div>
@@ -6,8 +10,8 @@
 </h1>
 <div class="grid-container p-12 m-12">
     <div class="overflow-hidden shadow-lg rounded-lg h-auto cursor-pointer p-4 bg-indigo-50 transition duration-500 ease-in-out transform hover:translate-y-5 hover:shadow-2xl">
-        <a href="/" class="w-full block h-full">
-            <img alt="blog photo" src="/Mimanudev.png" class="max-h-60 w-full object-cover"/>
+        <a href={`${base}`} class="w-full block h-full">
+            <img alt="blog photo" src={`${base}Mimanudev.png`} class="max-h-60 w-full object-cover"/>
             <div class="w-full">
                 <br>
                 <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
@@ -19,19 +23,19 @@
                 <div class="flex flex-wrap justify-starts items-center mt-4 border-t-2 pt-5">
                     
                     <div class="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-200 rounded-2xl">
-                        <img src="/DeviconAstro.svg" alt="astro" class="w-6 h-6"/>
+                        <img src={`${base}DeviconAstro.svg`} alt="astro" class="w-6 h-6"/>
                         #Astro
                     </div>
                     <div class="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-200 rounded-2xl">
-                        <img src="/CiHtml5.svg" alt="html" class="w-6 h-6">
+                        <img src={`${base}CiHtml5.svg`} alt="html" class="w-6 h-6">
                         #HTML
                     </div>
                     <div class="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-200 rounded-2xl">
-                        <img src="/TeenyiconsTailwind.svg" alt="tailwind" class="w-6 h-6">
+                        <img src={`${base}TeenyiconsTailwind.svg`} alt="tailwind" class="w-6 h-6">
                         #Tailwind
                     </div>
                     <div class="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-200 rounded-2xl">
-                        <img src="/SimpleIconsN8n.svg" alt="tailwind" class="w-6 h-6        ">
+                        <img src={`${base}SimpleIconsN8n.svg`} alt="tailwind" class="w-6 h-6        ">
                         #N8N
                     </div>
                 </div>
