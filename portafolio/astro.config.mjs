@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://manuelmendieta21.github.io',
-  base: process.env.NODE_ENV === 'production' ? '/portafolio' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/Portafolio_MM' : '/',
   integrations: [tailwind()],
 });
 
