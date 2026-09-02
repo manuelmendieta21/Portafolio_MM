@@ -4,7 +4,7 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://manuelmendieta21.github.io',
+	site: 'https://mimanudev.github.io',
 	base: process.env.NODE_ENV === 'production' ? '/Portafolio_MM/documentation' : '/',
 	server: { port: 4322 },
 	integrations: [

@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://manuelmendieta21.github.io',
+  site: 'https://mimanudev.github.io',
   base: process.env.NODE_ENV === 'production' ? '/Portafolio_MM' : '/',
   integrations: [tailwind()],
 });
