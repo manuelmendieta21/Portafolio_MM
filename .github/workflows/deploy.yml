@@ -17,9 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./portafolio
     steps:
       - name: Checkout your repository
         uses: actions/checkout@v4
@@ -30,12 +27,27 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+        working-directory: ./portafolio
 
-      - name: Build your Astro project
+      - name: Build portfolio
         run: npm run build
+        working-directory: ./portafolio
         env:
           NODE_ENV: production
+
+      - name: Install documentation dependencies
+        run: npm ci
+        working-directory: ./documentation/Documentation
+
+      - name: Build documentation
+        run: npm run build
+        working-directory: ./documentation/Documentation
+        env:
+          NODE_ENV: production
+
+      - name: Add documentation to portfolio artifact
+        run: cp -R documentation/Documentation/dist/. portafolio/dist/documentation/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4

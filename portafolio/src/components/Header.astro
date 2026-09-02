@@ -1,5 +1,6 @@
 ---
 const base = import.meta.env.BASE_URL;
+const documentationUrl = import.meta.env.DEV ? 'http://localhost:4322/' : `${base}documentation/`;
 ---
 
 <div class="header-container">
@@ -37,6 +38,9 @@ const base = import.meta.env.BASE_URL;
           </li>
           <li class="max-lg:border-b max-lg:py-3">
             <a href={`${base}Contact`} class="hover:text-[#007bff] text-black block font-bold text-[20px]">Contact</a>
+          </li>
+          <li class="max-lg:border-b max-lg:py-3">
+            <a href={documentationUrl} class="hover:text-[#007bff] text-black block font-bold text-[20px]">Documentation</a>
           </li>
         </ul>
       </div>
